@@ -3,7 +3,7 @@ from .models import Product
 
 class home_view(ListView):
     model = Product
-    paginate_by = 5
+    paginate_by = 8
     context_object_name = 'articles'
     template_name = 'home.html'
 

@@ -1,36 +1,129 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <div class="infinite-container">
-    {% for article in articles %}
-      <div class="infinite-item">
-        <h3>{{ article.title }}</h3>
-        <p>
-          <small>{{ article.date }}</small>
-        </p>
-        <p>{{ article.body|truncatechars:100 }}</p>
+
+<div class="container" style="margin-top:10px;">
+  <div class="d-none d-lg-block" id="header" style="height:100px; margin-top:10px;">
+    <div id="headerleft" style="float:left;"><a href="http://www.dealshotitems.com"><img alt="deals-hot-items-logo" src="static/images/deals-hit-items-logo-small.png"
+          alt="dealshotitems.com" border="0"></a></div>
+    <div id="headerright" style="float:right;"><img src="static/images/deals-hit-items-motto.png" alt="deals-hot-items-logo"
+        width="727" height="80"></div>
+  </div>
+
+
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
+      <img src="static/images/deals-hit-items-logo-small.png" alt="dealshotitems.com" border="0" width="92px">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/giftsforwomen.html">Gifts For Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/giftsformen.html">Gifts For Men</a>
+          </li>
+
+        </ul>
+        <div class="form-inline my-2 my-md-0">
+          <input class="form-control" id="searcharea" type="text" placeholder="Search">
+          <input type="hidden" id="searchstatus" name="searchstatus">
+        </div>
       </div>
-    {% endfor %}
-  </div>
+    </nav>
+  </header>
 
-  <div class="loading" style="display: none;">
-    Loading...
-  </div>
+  <div id="banner" style="margin-top:10px;"><img alt="banner" src="static/images/header.jpg" style="width:100%;"></div>
+</div>
 
-  {% if page_obj.has_next %}
-    <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"">More</a>
-  {% endif %}
+<main role="main">
 
-  <script>
-    var infinite = new Waypoint.Infinite({
-      element: $('.infinite-container')[0],
-      onBeforePageLoad: function () {
-        $('.loading').show();
-      },
-      onAfterPageLoad: function ($items) {
+
+  <div class="album py-5">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">
+            <h1 style="font-size:1rem">New Deals Lists</h1>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="infinite-container">
+        <div class="row">
+        {% for article in articles %}
+        <div class='col-md-3'>
+        <div class="infinite-item">
           
-        $('.loading').hide();
-      }
-    });
-  </script>
-{% endblock %}
+          
+            <div class='card mb-4 shadow-sm'>
+              <div style='min-height:70px !important; padding-top:5px;'>
+                <h5 class='card-title text-center text-warning'>
+                  <a style='color:orange;'>{{ article.title }}</a></h5>
+              </div>
+              <a>
+                <img class='card-img-top' src='static/images/{{ article.image }}' alt="image"></a>
+              <div class='card-body'>
+                <p class='card-text'>{{ article.content }}</p>
+                <div class='d-flex justify-content-between align-items-center'>
+                  <a target='_blank' class='btn btn-warning btn-sm'>CHECK IT OUT</a>
+                  <small class='text-muted'>$ {{ article.price }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+      </div>
+      </div>
+      </div>
+
+      <div class="loading" style="display: none;">
+        Loading...
+      </div>
+
+      {% if page_obj.has_next %}
+      <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"">More</a>
+            {% endif %}
+            
+            <script>
+              var infinite = new Waypoint.Infinite({
+                element: $('.infinite-container')[0],
+                onBeforePageLoad: function () {
+                  $('.loading').show();
+                },
+                onAfterPageLoad: function ($items) {
+
+                  $('.loading').hide();
+                }
+              });
+            </script>
+          </div>
+      
+  </div>
+
+</main>
+
+<footer class="
+        text-muted">
+        <div class="container">
+          <p class="float-right">
+            <a href="#">Back to top</a>
+          </p>
+          <p><b>Copyrights 2018 - Dealshotitems.com</b></p>
+          <p>Dealshotitems.com is a participant in the Amazon Services LLC Associates Program, an affiliate
+            advertising program designed to provide a means for sites to earn advertising fees by advertising and
+            linking to Amazon.com.</p>
+        </div>
+        </footer>
+
+
+        {% endblock %}
