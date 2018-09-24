@@ -21,12 +21,15 @@ from django.conf.urls import url,include,re_path,static
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    
     # url(r'^$', home_view,name='home'),
     # url(r'^post/', include('post.urls')),
     # url(r'^$', views.home, name='home'),
     path('', home_view.as_view(), name='home'),
-    path('post/', include('post.urls')),
+    # path('gifts/', home_view.as_view(), name='home'),
+    
+    path('gifts/', include('gifts.urls')),
+    path('admin/', admin.site.urls),
     # url(r'^$', home_view.as_view(), name='home'),
     
    
