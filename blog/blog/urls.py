@@ -25,7 +25,9 @@ urlpatterns = [
     # url(r'^$', home_view,name='home'),
     # url(r'^post/', include('post.urls')),
     # url(r'^$', views.home, name='home'),
-     url(r'^$', home_view.as_view(), name='home'),
+    path('', home_view.as_view(), name='home'),
+    path('post/', include('post.urls')),
+    # url(r'^$', home_view.as_view(), name='home'),
     
    
 ]

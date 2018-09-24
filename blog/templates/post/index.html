@@ -14,8 +14,8 @@
 
     {% for post in posts %}
     <li>{{post.id }}</li>
-    <li><a href="/post/{{post.id}}"">{{post.title }}</a></li>
-    <li><a href={% url 'detail' id=post.id %}>{{post.title }}</a></li>
+    <li><a href="/post/{{post.id}}">{{post.title }}</a></li>
+    <li><a>{{post.title }}</a></li>
     
     <li>{{post.content }}</li>
     <li>{{post.publishing_date }}</li>
