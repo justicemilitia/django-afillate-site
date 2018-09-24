@@ -1,0 +1,56 @@
+{% extends 'base_detail.html' %}
+{% load static %}
+{% block content %}
+<div class="container" id="getdetailinfo">
+    <br />
+    <div class='card'>
+        <div class='row'>
+            <aside class='col-sm-5 border-right' style="float: left;">
+                <article class='gallery-wrap'>
+                    <div class='img-big-wrap'>
+                        <div style='text-align:center;'> <a><img style='width:100%;' src='http://127.0.0.1:5000/static/images/products/{{product.image }}' /></a></div>
+                    </div>
+                </article>
+            </aside>
+            <aside class='col-sm-7' style="float: right;">
+                <article class='card-body p-5'>
+                    <h3 class='title mb-3'>{{product.title }}</h3>
+                    <p class='price-detail-wrap'>
+                        <span class='price h3 text-warning'>
+                            <span class='currency'>US $</span><span class='num'>{{product.price }}</span>
+                        </span>
+                    </p>
+                    <dl class='item-property'>
+                        <dt>Description</dt>
+                        <dd>
+                            <p>{{product.content }}</p>
+                        </dd>
+                    </dl>
+                    <hr />
+                    <div class='row'>
+                        <div class='col-sm-5'>
+                        </div>
+                        <div class='col-sm-7'>
+                        </div>
+                    </div>
+                    <a href='link' target='_blank' class='btn btn-warning btn-sm'>CHECK IT OUT</a>
+                </article>
+            </aside>
+        </div>
+    </div>
+
+</div>
+<footer class="
+   text-muted">
+   <div class="container">
+      <p class="float-right">
+         <a href="#">Back to top</a>
+      </p>
+      <p><b>Copyrights 2018 - Dealshotitems.com</b></p>
+      <p>Dealshotitems.com is a participant in the Amazon Services LLC Associates Program, an affiliate
+         advertising program designed to provide a means for sites to earn advertising fees by advertising and
+         linking to Amazon.com.
+      </p>
+   </div>
+</footer>
+{% endblock %}
