@@ -25,6 +25,7 @@ urlpatterns = [
     # url(r'^$', home_view,name='home'),
     # url(r'^post/', include('post.urls')),
     # url(r'^$', views.home, name='home'),
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('', home_view.as_view(), name='home'),
     # path('gifts/', home_view.as_view(), name='home'),
     
