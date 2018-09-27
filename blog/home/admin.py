@@ -28,7 +28,7 @@ class ProductsAdmin(admin.ModelAdmin):
     # editable belirlenen alanlar link olarak ayarlanmamalı!!! list filterden title alanını kaldırdım.
     list_editable = ['title']
     # save_on_top = True
-    fields = ["title", "image", "content", get_picture_preview]
+    fields = ['title', 'image', 'content','slug','price', get_picture_preview,'link','published','sort','urli']
     readonly_fields = [get_picture_preview]
     # inlines = [ReviewInline]
 
